@@ -38,7 +38,7 @@ To build and run the project you must have installed on your machine :
 ```
 :bangbang: The project using maven it must therefore be imported as such into your preferred IDE. :bangbang:
 
-# :wrench: :bunch: Build and run
+# :wrench: :hammer: Build and run :rocket:
 
 To build a specific example :
 1. go to the folder of the desired module
