@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+http://www.springframework.org/schema/context
+      http://www.springframework.org/schema/context/spring-context-3.0.xsd">
+	
+	<context:annotation-config />
+	<context:component-scan base-package="fr.ema.examples.has.*" />
+
+	<!--  Beans which will be linked to the : orchestratorWithOnlyXML -->
+	<bean class="fr.ema.examples.has.config.AdjustableLamp" id="lampDesk"/>
+	<bean class="fr.ema.examples.has.config.Clock" id="clockBedroom" />
+	
+	<!-- Bean not attached to a specific Orchestrator component but 
+	autowired to the orchestratorWithAutowiring during the instantiation phase.
+	This bean erases the bean and his type declared with the same ID "adjustableLampWithNewType" 
+	in the Java Configuration file. In addition we redefine the type of the instantied object, from
+	an AdjustableLamp in Java config we switch to an AdjustableLampVocalCommand in XML -->
+	<bean
+		class="fr.ema.examples.has.config.AdjustableLampVocalCommand"
+		id="adjustableLampWithNewType" />
+		
+	<bean class="fr.ema.examples.has.config.Orchestrator" id="orchestratorWithOnlyXML">
+		<property name="lights">
+			<set>
+				<ref bean="lampDesk" />
+			</set>
+		</property>
+		<property name="clock" ref="clockBedroom" />
+	</bean>
+</beans>
