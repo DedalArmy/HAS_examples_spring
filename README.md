@@ -43,13 +43,11 @@ To build a specific example :
 1. go to the folder of the desired module
 2. Run the following command to build the project (
     ```console
-    # lego@dedalarmy in ~/HAS_examples_spring/[desired_module]
-    $ mvn clean install
+    lego@dedalarmy:~/HAS_examples_spring/[desired_module]$ mvn clean install
     ```
 3. After to launch Spring Boot, please run the command :
     ```console
-    # lego@dedalarmy in ~/HAS_examples_spring/[desired_module]
-    $ mvn spring-boot:run
+    lego@dedalarmy:~/HAS_examples_spring/[desired_module]:$ mvn spring-boot:run
     ```
 And normally (but only if you're lucky and kind :sparkles: ) the Spring Boot app starts correctly :+1:
 
